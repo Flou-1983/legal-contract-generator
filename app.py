@@ -1,8 +1,7 @@
 import streamlit as st
-import openai
+from openai import OpenAI
 
-# Replace with your actual API key
-openai.api_key = "your-api-key-here"
+client = OpenAI(api_key="your-api-key-here")
 
 st.title("Legal Contract Generator")
 
@@ -21,7 +20,7 @@ if st.button("Generate Contract"):
     Use formal, professional legal language.
     """
     with st.spinner("Generating..."):
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-4",
             messages=[{"role": "user", "content": prompt}]
         )
