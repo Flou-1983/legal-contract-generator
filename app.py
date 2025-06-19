@@ -1,7 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 
-client = OpenAI(api_key="your-api-key-here")
+client = OpenAI(api_key=st.secrets["openai"]["api_key"])
 
 st.title("Legal Contract Generator")
 
